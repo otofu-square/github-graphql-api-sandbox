@@ -1,5 +1,8 @@
 {
   "name": "try-graphql.js",
   "version": "0.0.1",
-  "repository": "ssh://git@github.com/otofu-square/try-graphql.js.git"
+  "repository": "ssh://git@github.com/otofu-square/try-graphql.js.git",
+  "dependencies": {
+    "graphql": "^0.9.2"
+  }
 }
