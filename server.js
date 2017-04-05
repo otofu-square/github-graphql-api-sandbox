@@ -3,19 +3,43 @@ const graphqlHTTP = require('express-graphql')
 const { buildSchema } = require('graphql')
 
 const schema = buildSchema(`
+  type RandomDie {
+    numSides: Int!
+    rollOnce: Int!
+    roll(numRolls: Int!): [Int]
+  }
+
   type Query {
-    rollThreeDice(numDice: Int!, numSides: Int): [Int]
+    getDie(numSides: Int): RandomDie
   }
 `)
 
-const root = {
-  rollThreeDice: (args) => {
+class RandomDie {
+  constructor(numSides) {
+    this.numSides = numSides
+  }
+
+  numSides() {
+    this.numSides
+  }
+
+  rollOnce() {
+    return 1 + Math.floor(Math.random() * this.numSides)
+  }
+
+  roll({numRolls}) {
     const output = []
-    for (let i = 0; i < args.numDice; i++) {
-      output.push(1 + Math.floor(Math.random() * (args.numSides || 6)))
+    for (let i = 0; i < numRolls; i++) {
+      output.push(this.rollOnce())
     }
     return output
-  },
+  }
+}
+
+const root = {
+  getDie: (args) => {
+    return new RandomDie(args.numSides || 6)
+  }
 }
 
 const app = express()
