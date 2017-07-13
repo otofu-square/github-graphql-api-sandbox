@@ -2,6 +2,9 @@
   "name": "try-graphql.js",
   "version": "0.0.1",
   "repository": "ssh://git@github.com/otofu-square/try-graphql.js.git",
+  "scripts": {
+    "start": "ts-node src"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
