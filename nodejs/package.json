@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node index.ts"
+    "start": "ts-node index.ts",
+    "lint": "tslint ./src"
   },
   "devDependencies": {
     "@types/node": "^8.0.24",
