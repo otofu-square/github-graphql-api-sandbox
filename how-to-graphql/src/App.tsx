@@ -1,5 +1,6 @@
 import * as React from 'react';
+import { Button } from 'antd';
 
-const App = () => <h1>Hello World</h1>;
+const App = () => <Button>Hello World</Button>;
 
 export default App;
